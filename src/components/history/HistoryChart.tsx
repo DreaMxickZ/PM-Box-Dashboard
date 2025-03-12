@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -118,7 +118,8 @@ export default function HistoryChart({ data, sensorType = "pm25" }: HistoryChart
     ],
   };
 
-  const options = {
+  // แก้ไขแล้วเพื่อแก้ปัญหา TypeScript
+  const options: any = {
     responsive: true,
     plugins: {
       legend: {
@@ -131,10 +132,6 @@ export default function HistoryChart({ data, sensorType = "pm25" }: HistoryChart
     scales: {
       y: {
         beginAtZero: true,
-        grid: {
-          // ลบ drawBorder ออก หรือเปลี่ยนเป็น
-          borderWidth: 0 // ใช้ borderWidth แทน drawBorder
-        }
       },
       x: {
         grid: {
