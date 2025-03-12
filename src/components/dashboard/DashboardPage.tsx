@@ -47,7 +47,7 @@ export default function DashboardPage() {
           icon="alcohol"
         />
         <SensorCard
-          title="PM 1.0"
+          title="PM 10"
           value={data?.pm10 || 0}
           unit="μg/m³"
           icon="particle"
