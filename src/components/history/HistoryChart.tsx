@@ -132,15 +132,16 @@ export default function HistoryChart({ data, sensorType = "pm25" }: HistoryChart
       y: {
         beginAtZero: true,
         grid: {
-          drawBorder: false,
-        },
+          // ลบ drawBorder ออก หรือเปลี่ยนเป็น
+          borderWidth: 0 // ใช้ borderWidth แทน drawBorder
+        }
       },
       x: {
         grid: {
           display: true,
-        },
-      },
-    },
+        }
+      }
+    }
   };
 
   // ดึงข้อมูลล่าสุดอย่างปลอดภัย
