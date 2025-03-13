@@ -6,7 +6,15 @@ interface DateTimePickerProps {
 }
 
 export default function DateTimePicker({ onSearch }: DateTimePickerProps) {
-  const today = new Date().toISOString().split("T")[0];
+  // ใช้วันที่ปัจจุบัน โดยไม่ต้องแปลงเป็น string ตอนนี้
+  const currentDate = new Date();
+  // เพิ่ม 1 วันเพื่อให้รวมวันปัจจุบันด้วย
+  const tomorrow = new Date(currentDate);
+  tomorrow.setDate(currentDate.getDate() + 1);
+  
+  // แปลงเป็น string ในรูปแบบ YYYY-MM-DD
+  const today = currentDate.toISOString().split('T')[0];
+  const maxDate = tomorrow.toISOString().split('T')[0];
   
   const [date, setDate] = useState<string>(today);
   const [startTime, setStartTime] = useState<string>("00:00");
@@ -36,7 +44,8 @@ export default function DateTimePicker({ onSearch }: DateTimePickerProps) {
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-gray-700 dark:border-gray-600"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            max={today}
+            min="2020-01-01"
+            max={maxDate} // ใช้วันพรุ่งนี้เป็นค่าสูงสุด เพื่อให้เลือกวันนี้ได้
           />
         </div>
         
