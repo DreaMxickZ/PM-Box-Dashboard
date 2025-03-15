@@ -27,9 +27,7 @@ A responsive web dashboard for monitoring and visualizing air quality data colle
 - **Backend/Database**: Firebase Realtime Database
 - **Deployment**: Vercel
 
-## Live Demo
 
-Visit the live dashboard: [PM Box Dashboard](https://pm-box-dashboard.vercel.app)
 
 ## Getting Started
 
